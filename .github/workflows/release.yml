@@ -46,7 +46,9 @@ jobs:
 
       - uses: goreleaser/goreleaser-action@v7
         with:
-          version: "~> v2"
+          # v2.19 is the first release with homebrew_casks hooks `install_steps`
+          # (.goreleaser.yaml); older versions reject the key.
+          version: "~> v2.19"
           args: release --clean
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
